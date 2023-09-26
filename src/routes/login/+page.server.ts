@@ -33,6 +33,7 @@ export const actions: Actions = {
             }
             if(existingUser) {  
                 //when the user exists :)
+                console.log("user exists.")
                 if(password == existingUser.password){
                     cookies.set("username", userName);
                     throw redirect(307, "/");

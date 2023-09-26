@@ -4,8 +4,6 @@ import type { Actions, PageServerLoad } from './$types';
 
 const prisma = new PrismaClient();
 
-let users : string[] = []
-
 export const load = (async ({cookies}) => {
     let username = cookies.get("username");
     if(username){
@@ -59,6 +57,5 @@ export const actions: Actions = {
             return fail(400, {userName: "No username to be found :("})
         }
         cookies.delete("username")
-        users = users.filter((e) => e != userName) //Filter username :)
     }
 };

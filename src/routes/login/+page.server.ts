@@ -27,7 +27,7 @@ export const actions: Actions = {
             });
             console.log(existingUser)
             if(!password){
-                throw fail(400, {password: "no password found :("})
+                return fail(400, {password: "no password found :("})
             }
             if(existingUser) {  
                 //when the user exists :)
@@ -37,7 +37,8 @@ export const actions: Actions = {
                     throw redirect(307, "/");
                 }
                 else{
-                    throw fail(400, {password: "Wrong password."})
+                    console.log("Wrong password")
+                    return fail(400, {userName: "Wrong password."})
                 }                
             }
             else {

@@ -6,7 +6,7 @@
     export let data: PageData;
     export let form;
 
-    $: sessions = data._sessions;
+    $: sessions = data.sessionList;
 </script>
 
 <main class="bg">
@@ -14,12 +14,12 @@
         <h1>Existing Sessions</h1>
         
         <div class="list">
-            {#each sessions as [session, messages]}
+            {#each sessions as session}
                 <div class="session-element">
-                    <a href="/sessions/{session}">Join</a>
+                    <a href="/sessions/{session.name}">Join</a>
                     <div>
-                        <p>{session}</p>
-                        <p>{messages.length} Messages</p>
+                        <p>{session.name}</p>
+                        <p>{session.messages.length} Messages</p>
                     </div>
                 </div>
             {/each}

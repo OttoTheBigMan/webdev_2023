@@ -2,9 +2,10 @@
     import { browser } from '$app/environment';
     import { enhance } from '$app/forms';
     import { onDestroy } from 'svelte';
-    import type { PageData } from './$types';
+    import type { ActionData, PageData } from './$types';
     import { invalidateAll } from '$app/navigation';
     
+    export let form: ActionData;
     export let data: PageData;
 
     if(browser) {
@@ -34,7 +35,11 @@
         <form action="?/message" method="post" use:enhance>
             <input type="text" name="message">
             <button><img src="https://cdn-icons-png.flaticon.com/512/2343/2343605.png" alt="bollar"></button>
+            
         </form>
+        {#if form?.msg} 
+            <span style="color: red">{form.msg}</span>
+        {/if}
     </div>
 </main>
 
@@ -61,7 +66,7 @@
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
-        max-height: 100%;
+        
         width: 80%;
         margin: 15px;
         gap: 10px;

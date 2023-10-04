@@ -95,6 +95,7 @@
             <h3>Total Visits: {data._totalVisits}</h3>
         </div>
     </div>
+    <a style="color: black" href="/sessions">Sessions</a>
     
 </body>
 

@@ -7,7 +7,8 @@ export const load = (async () => {
     return { _sessions };
 }) satisfies PageServerLoad;
 
-export const actions: Actions = {
+export const actions: Actions = { 
+    
     create: async ({request}) => {
         let data = await request.formData();
         let sessionName = data.get("sessionName")?.toString();

@@ -4,6 +4,7 @@
     import { onDestroy } from 'svelte';
     import type { ActionData, PageData } from './$types';
     import { invalidateAll } from '$app/navigation';
+    import '@fontsource/ubuntu';
     
     export let form: ActionData;
     export let data: PageData;
@@ -20,7 +21,6 @@
 <main>
     <h1>welcome to session: {data.session}</h1>
     
-    <hr>
     
     
     
@@ -48,6 +48,8 @@
         overflow: hidden;
         margin: 0;
         padding: 0;
+
+        font-family: "Ubuntu", sans-serif;
     }
     main {
         display: flex;
@@ -57,21 +59,38 @@
 
         height: 100vh;
         width: 100vw;
-        overflow: hidden;
 
         background-color: aliceblue;    
-    }                                                                                                                                                           
+    }             
+    ::-webkit-scrollbar {
+        background-color: rgb(52, 47, 53);
+        border-radius: 7.5px;
+        width: 15px;
+    }                                                        
+    ::-webkit-scrollbar-button{
+        display: none;
+    }                 
+    ::-webkit-scrollbar-thumb{
+        border-radius: 7.5px;
+        width: 15px;
+        background-color: rgb(86, 85, 87);
+
+    }                                                                     
     .messages {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: flex-end;
         
-        width: 80%;
+        width: 100%;
         margin: 15px;
         gap: 10px;
+        /* max-height: 90%; */
+        overflow-y: auto;
 
-        overflow-y: scroll;
+        flex-grow: 1;
+
+        box-sizing: border-box;
     }
     .message-bubble {
         border-radius: 10px;
@@ -90,16 +109,22 @@
     .chat{
         display: flex;
         flex-direction: column;
+        justify-content: space-between;
         align-items: center;
         margin-bottom: 50px;
         border-radius: 15px;
         width: 35vw;
-        height: 100%;
+        height: 90vh;
         background-color: rgb(51, 59, 63);
+
+        box-sizing: border-box;
+        padding: 10px;
     }
     form {
         display: flex;
         align-items: center;
+
+        height: 50px;
     }
     form input {
         width: 25vw;

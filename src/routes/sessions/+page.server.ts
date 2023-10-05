@@ -9,7 +9,7 @@ export let _sessions: Map<string, {text: string, user: string}[]> = new Map();
 export const load = (async () => {
     const allSessions = await prisma.session.findMany({include: {messages: true}})
     let sessionList : {name: string, creatorId: number, messages: any[]}[] = []
-    allSessions.forEach(session => {
+    allSessions.forEach((session : any) => {
         sessionList.push({
             name: session.name,
             creatorId: session.userId,

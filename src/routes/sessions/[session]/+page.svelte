@@ -39,6 +39,8 @@
         </form>
         {#if form?.msg} 
             <span style="color: red">{form.msg}</span>
+        {:else}
+            <span style="opacity: 0; user-select: none">Hello :)</span>
         {/if}
     </div>
 </main>

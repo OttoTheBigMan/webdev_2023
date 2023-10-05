@@ -22,7 +22,7 @@ export const load: PageServerLoad = async ({ params, cookies }) => {
 
   return {
     session: session.name,
-    messages: session.messages.map((message) => ({
+    messages: session.messages.map((message : any) => ({
       text: message.text,
       user: message.sender?.name,
     })),

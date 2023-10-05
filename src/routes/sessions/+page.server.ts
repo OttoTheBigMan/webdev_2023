@@ -44,6 +44,5 @@ export const actions: Actions = {
         else{
             return fail(400, {sessionName: "Unable to find user."})
         }
-        
     }
 };

@@ -4,7 +4,7 @@
     import type { ActionData } from "./$types.js";
 
     export let form: ActionData;
-    export let data;
+    // export let data;
 </script>
 
 
@@ -12,8 +12,8 @@
 <body>
     <div class="login-div">
         <form method="post" action="?/login" use:enhance>
-            <label for="username">Name: <input type="text" name="username"></label>
-            <label for="password">Password: <input type="password" name="password"></label>
+            <label>Name: <input type="text" name="username"></label>
+            <label>Password: <input type="password" name="password"></label>
             
             <button class="btn">Log In</button>
             {#if form?.userName}
